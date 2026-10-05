@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Програми обміну{% endblock title %}
+{% block content %}
+  <h2>Програми академічного обміну</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Університет</th>
+        <th>Країна</th>
+        <th>Мови</th>
+        <th>Місця</th>
+        <th>Дедлайн</th>
+        <th>Статус</th>
+        <th>Опис</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for program in programs %}
+        <tr>
+          <td>{{ program.university_name }}</td>
+          <td>{{ program.country }}</td>
+          <td>{{ program.languages }}</td>
+          <td>{{ program.places }}</td>
+          <td>{{ program.deadline|date:"d.m.Y" }}</td>
+          <td>
+            {% if program.is_active %}
+              <span class="status-active">Прийом триває</span>
+            {% else %}
+              <span class="status-closed">Прийом завершено</span>
+            {% endif %}
+          </td>
+          <td>{{ program.description }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="7">Програм поки немає.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}
