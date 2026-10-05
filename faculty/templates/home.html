@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Головна – Факультет природничих наук{% endblock title %}
+{% block content %}
+  <h1>Факультет природничих наук</h1>
+  {% if main_page %}
+    <div>
+      <p>{{ main_page.about_text }}</p>
+    </div>
+    <div>
+      <h2>Керівництво факультету</h2>
+      <p><strong>Декан:</strong> {{ main_page.dean_name }}</p>
+      <p><strong>Науковий ступінь:</strong> {{ main_page.dean_degree }}</p>
+      <p><strong>Контакти:</strong> {{ main_page.contacts }}</p>
+    </div>
+  {% else %}
+    <p>Інформація на головній сторінці ще не заповнена.</p>
+  {% endif %}
+{% endblock content %}

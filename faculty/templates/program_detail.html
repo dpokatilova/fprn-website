@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ program.name }}{% endblock title %}
+{% block content %}
+  <h2>{{ program.code }} – {{ program.name }}</h2>
+  <p><strong>Випускова кафедра:</strong> <a href="{% url "department-detail" program.department.id %}">{{ program.department.name }}</a></p>
+  <div>
+    <h3>Повний опис спеціальності</h3>
+    <p>{{ program.description }}</p>
+  </div>
+  <div>
+    <h3>Список дисциплін</h3>
+    <p>{{ program.disciplines }}</p>
+  </div>
+  <div>
+    <h3>Координатор набору</h3>
+    <p><strong>Ім’я:</strong> {{ program.coordinator_name }}</p>
+    <p><strong>Контакти:</strong> {{ program.coordinator_contact }}</p>
+  </div>
+{% endblock content %}

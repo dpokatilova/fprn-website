@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ФПрН НаУКМА{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">ФПрН НаУКМА</div>
+        <nav>
+          <a href="{% url 'home' %}">Головна</a>
+          <a href="{% url 'department-list' %}">Кафедри</a>
+          <a href="{% url 'program-list' %}">Спеціальності</a>
+          <a href="{% url 'exchange-list' %}">Програми обміну</a>
+        </nav>
+      </div>
+    </header>
+    <main class="main-content">
+      {% block content %}{% endblock %}
+    </main>
+    <footer>
+      <p>© 2026 Факультет природничих наук НаУКМА</p>
+    </footer>
+  </body>
+</html>
